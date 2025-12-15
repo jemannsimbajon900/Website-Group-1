@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🦇 The Batman Archives - Rogues Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #121212;
+      color: #f0f0f0;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #1c1c1c;
+    }
+
+    nav {
+      background-color: #1c1c1c;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      padding: 15px 25px;
+    }
+
+    nav ul li a {
+      color: #f0f0f0;
+      text-decoration: none;
+    }
+
+    nav ul li:hover {
+      background-color: #333;
+    }
+
+    nav ul li.active {
+      background-color: #444;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h2 {
+      color: #bab0b0;
+    }
+
+    .rogue-grid {
+      display: flex;
+      flex-wrap: wrap;   /* This allows wrapping */
+      gap: 20px;         /* Space between cards */
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .rogue-card {
+      text-align: center;
+      max-width: 200px;
+    }
+
+    .rogue-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1c1c1c;
+      color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🦇 The Batman Archives</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="creator.html">Creator</a></li>
+      <li class="active"><a href="rogues.html">Rogues Gallery</a></li>
+      <li><a href="references.html">References</a></li>
+    </ul>
+  </nav>
+
+<!-- REFERENCES -->
+<section id="references" class="tab">
+  <h2>References</h2>
+  <ul id="referenceList" style="margin-top: 20px;">
+    <li>Detective Comics #27 (1939)</li>
+    <li>Detective Comics #33 (1939)</li>
+    <li>Batman: Year One (1987)</li>
+    <li>The Killing Joke (1988)</li>
+    <li>The Long Halloween (1996-1997)</li>
+    <li>Arkham Asylum: A Serious House on Serious Earth (1989)</li>
+    <li>Batman: The Animated Series (1992 - 1995)</li>
+  
+   <!-- Feedback Section -->
+<h3 style="margin-top: 40px;">📝 Submit a Concern or Feedback</h3>
+<p>Have any concerns, issues, or feedback? Let us know below.</p>
+
+<form id="concernForm" action="https://formspree.io/f/mvgeynko" method="POST">
+    <input type="text" name="name" placeholder="Name" required style="display:block; width:100%; max-width:400px; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;">
+    <textarea name="concern" placeholder="Type your concern here..." required style="display:block; width:100%; max-width:400px; height:100px; padding:10px; border-radius:5px; border:1px solid #ccc;"></textarea>
+    
+    <button 
+        type="submit"
+        id="concernSubmitBtn"
+        style="padding:10px 20px; margin-top:10px; background:#222; color:#fff; border:1px solid #444; border-radius:5px; cursor:pointer;">
+        Submit Concern
+    </button>
+</form>
+
+<script>
+document.getElementById('concernForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // prevent default form submission
+
+    const form = e.target;
+    const name = form.name.value.trim();
+    const concern = form.concern.value.trim();
+
+    if (!name || !concern) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Incomplete',
+            text: 'Please fill in both your name and your concern.',
+        });
+        return;
+    }
+
+    fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+        if (response.ok) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Thank you!',
+                text: 'Your concern has been submitted.',
+            });
+            form.reset(); // clear the form
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong, please try again.',
+            });
+        }
+    })
+    .catch(error => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Failed to submit concern: ' + error,
+        });
+    });
+});
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.getElementById('concernForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // prevent default form submission
+
+    const form = e.target;
+
+    fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+        if (response.ok) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Thank you!',
+                text: 'Your concern has been submitted.',
+            });
+            form.reset(); // clear the form
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong, please try again.',
+            });
+        }
+    })
+    .catch(error => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Failed to submit concern: ' + error,
+        });
+    });
+});
+</script>
+
+
+
+   <ul id="concernList" style="margin-top: 20px;"></ul>
+   </ul>
+   </section>
+
+   </main>
+
+   <footer>
+    <p>© 2025 The Gotham Index. All rights reserved.</p>
+   </footer>
+
+   <script>
+    function showTab(tabId, element) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('nav ul li').forEach(item => item.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      element.classList.add('active');
+    }
+
+    // SweetAlert button functionality
+    document.getElementById('home-alert').addEventListener('click', function() {
+      Swal.fire({
+        title: 'Batman Fun Fact',
+        text: 'Did u know that Batman have mastered 127 different martial art styles including Krav Maga and Judo?',
+        icon: 'info',
+        confirmButtonText: 'Got it!'
+      });
+    });
+    
+    document.getElementById('concernSubmitBtn').addEventListener('click', function () {
+  const concernText = document.getElementById('concernInput').value.trim();
+
+  if (concernText === '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Empty Concern',
+      text: 'Please type something before submitting.',
+    });
+    return;
+  }
+
+  // Send concern to PHP file
+  fetch('save_concern.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: 'concern=' + encodeURIComponent(concernText)
+  })
+  .then(response => response.text())
+  .then(result => {
+    if(result === 'success'){
+      Swal.fire({
+        icon: 'success',
+        title: 'Thank You!',
+        text: 'Your concern has been submitted.',
+      });
+      document.getElementById('concernInput').value = '';
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Something went wrong: ' + result,
+      });
+    }
+  })
+  .catch(err => {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Failed to submit concern: ' + err,
+    });
+  });
+});
+
+
+
+  </script>
+
+</body>
+</html>

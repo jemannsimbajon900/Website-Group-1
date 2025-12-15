@@ -1,0 +1,372 @@
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>🦇 The Batman Archives</title>
+  <style>
+    /* General Styles */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header, footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1c1c1c;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background-color: #1c1c1c;
+    }
+
+    nav ul li {
+      padding: 15px 25px;
+      cursor: pointer;
+      color: #f0f0f0;
+      transition: background 0.3s;
+    }
+
+    nav ul li:hover {
+      background-color: #333;
+    }
+
+    nav ul li.active {
+      background-color: #444;
+      font-weight: bold;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    p, ul, li {
+      line-height: 1.6;
+    }
+
+    /* Rogues Gallery */
+    .rogue-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .rogue-card {
+      text-align: center;
+      max-width: 250px;
+    }
+
+    .rogue-card img {
+      height: 250px;
+      width: auto;
+      border-radius: 5px;
+      object-fit: contain;
+    }
+
+    /* Home Images and Button */
+    #home img {
+      margin: 10px;
+      border-radius: 10px;
+      vertical-align: middle;
+    }
+
+    #home button {
+      display: block;
+      margin: 25px auto 40px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #222;
+      color: #f0f0f0;
+      border: 1px solid #555;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    #home button:hover {
+      background-color: #333;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🦇 The Batman Archives</h1>
+  </header> 
+  
+  <nav>
+  <ul>
+    <li class="active"><a href="index.html">Home</a></li>
+    <li><a href="creator.html">Creator</a></li>
+    <li><a href="rogues.html">Rogues Gallery</a></li>
+    <li><a href="references.html">References</a></li>
+  </ul>
+</nav>
+
+
+  <nav>
+    <ul>
+      <li class="active" onclick="showTab('home', this)">Home</li>
+      <li onclick="showTab('creator', this)">Creator</li>
+      <li onclick="showTab('rogues', this)">Rogues Gallery</li>
+      <li onclick="showTab('references', this)">References</li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- HOME SECTION -->
+    <section id="home" class="tab active">
+      <h2>Welcome to the Batman Archives</h2>
+      <p>This is your portal into Gotham's darkest secrets. From the legendary Caped Crusader to the twisted villains that haunt the night, everything is cataloged here.</p>
+      <p>“I am vengeance. I am the night. I am Batman.”</p>
+
+      <!-- Batman Images -->
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvCaIuU3KUsnoCj4pyAzVAmZfETW7TRxts6g&s" alt="Batman" width="250">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgJ4CJP4OtubfcElGJSHByWF3ADId4xrgRHCNeA0zENOwfOBe3ci2tw3dD&s=10" alt="Batman02" width="250">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI0kQNqrSIXD7-h3zlfXjJ3tGsDnGlAI-mig&s" alt="Batman03" width="270">
+
+      <!-- ✅ SweetAlert Button moved directly below images -->
+      <button id="home-alert">Learn More About Batman</button>
+
+      <p>Batman, also known as Bruce Wayne, witnessed the murder of his parents Thomas and Martha Wayne, which drove him to fight crime in Gotham. His greatest enemy, the Joker, embodies chaos and challenges Batman's mission of justice. Batman trains rigorously in martial arts, detective skills, and technology, dedicating his life to fighting injustice and protecting the innocent.</p>
+      <p>Origin Story: After losing his parents to a mugging, young Bruce vowed to eradicate crime. He traveled the world, mastering combat, stealth, and strategy, eventually returning to Gotham as the Dark Knight.</p>
+      <p>“I swear by the spirits of my parents to avenge their deaths by spending the rest of my life warring on all criminals.”</p>
+      <p>Haunted by guilt and grief, Bruce traveled the world studying under masters of combat, criminology, escapology, and psychology. From the snowy monasteries of the Himalayas to the dens of criminal underworlds, Bruce honed his mind and body into the ultimate weapon. Bruce struggled on how to combat crime after returning to Gotham, but after a bat flew through his window, he decided to use the bat's image to frighten criminals. Batman's fight against crime is powered by his intelligence and Wayne Enterprises' advanced tech. Batman is both a symbol of justice and a study of trauma. He embodies how pain can be transformed into purpose but also how obsession can consume someone.</p>
+
+      <h1 style="margin-top: 40px; margin-bottom: 20px;">Batman's First Appearance</h1>
+      <p>The story opens with Commissioner James Gordon entertaining his friend Bruce Wayne, a wealthy socialite. When Gordon receives a call about a murder at a chemical plant, Bruce accompanies him seemingly out of idle curiosity. As the police investigate, a mysterious, darkly dressed figure known only as “The Bat-Man” appears in the night. Wearing a gray bodysuit, black cape, cowl, and bat insignia, he stalks the criminals behind the murder, using cunning, stealth, and physical prowess to bring them to justice. In the story's climax, Batman confronts the culprit, a corrupt business partner, and knocks him into a vat of acid, which ends up killing him. Then they reveal to the readers that Bruce Wayne had a dual identity and that he's Batman.</p>
+
+      <h1 style="margin-top: 40px; margin-bottom: 20px;">Joker's First Appearance</h1>
+      <p>Introducing Batman's hardest opponent and one of the most iconic villains in history: the Joker. While he might not look physically strong, he often outwits Batman in their encounters. He was first introduced in <strong>Batman #1</strong> in the Spring of 1940, hijacking a radio broadcast to announce: “At exactly midnight tonight, I will kill Henry Claridge and steal the Claridge Diamond! The Joker has spoken!” The police rushed to protect Claridge, locking him inside his room, but when midnight struck, he was found dead and the diamond stolen. Joker remained mysterious until Batman discovered he was using chemical knowledge to commit his crimes. Since then, the Joker has become one of Batman’s toughest and most unpredictable enemies, cementing his place in comic book history.</p>
+      
+      <h1 style="margin-top: 40px; margin-bottom: 20px;">Penguin's First Appearance</h1>
+      <p>He first appeared plotting to steal the Waddle Meyer Faberge Egg, he had thugs helping him to steal it and so they infiltrate the museum and successfully steals it.
+      But not for long since Batman tracks Penguin's location while Penguin was trying to escape to his basement and tried to trap Batman in the basement and thought he successfully escaped but Batman got to him and recovered the Faberge Egg which was a valuable asset at the museum and Penguin gets captured.
+      According to our research he appeared in several episodes in the Batman Animated Series,thats part of reason we included him in the rogue gallery but not necessarily the main reason.</p>
+      <h1 style="margin-top: 40px; margin-bottom: 20px;">Mr Freeze First Appearance</h1>
+      <p>Mr Freeze major appearance was in the Batman Animated Series,although he appeared before one of his defining tragic backstory didnt appear until the Batman Animated Series which means his story was reinterpreted in a different light in this significantly altering version.
+      He was a scientist who tried to cure his wife named Nora using cryogenic technology however an accident happened during one of his experiments during an altercation with security at the lab a coolant explosion happened which made him Mr Freeze as his body temperature had reached freezing level and he had to wear a suit to regulate his body temperature
+      He plots for revenge against those people because he felt betrayed and his motivation was to saving her wife no matter what. </p>
+    <h1 style="margin-top: 40px; margin-bottom: 20px;">Catwoman First Appearance</h1>
+    <P>Catwoman was introduced as a jewel thief and she was targetting those wealthy people and stealing their valuable items or possessions using her agility,stealth and planning by observing the place first and use it to her advantage,Batman investigated her to learn how she does her crimes and it led to their first clash, Catwoman was trying to flirt with Batman to make him lose focus which was effective and it ultimately led to her escaping that time.It shows how clever the character is and their traits that make them unique to others and it surely worked in her favor.</P>
+    <h1 style="margin-top: 40px; margin-bottom: 20px;">Scarecrow First Appearance</h1>
+    Dr. Jonathan Crane (the man behind the Scarecrow persona) is introduced as a professor at Gotham University, where he teaches psychology. He's presented as a somewhat unassuming academic, though his obsession with fear and how it affects the human mind is immediately apparent. His true nature as the villainous Scarecrow,
+Crane’s transformation into the Scarecrow is tied to his twisted views on fear. He is obsessed with experimenting on people using fear toxins to induce terror, and he wears a frightening scarecrow costume to embody his warped understanding of fear using chemical formula
+    </section>
+
+    
+
+<script>
+document.getElementById('concernForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // prevent default form submission
+
+    const form = e.target;
+    const name = form.name.value.trim();
+    const concern = form.concern.value.trim();
+
+    if (!name || !concern) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Incomplete',
+            text: 'Please fill in both your name and your concern.',
+        });
+        return;
+    }
+
+    fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+        if (response.ok) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Thank you!',
+                text: 'Your concern has been submitted.',
+            });
+            form.reset(); // clear the form
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong, please try again.',
+            });
+        }
+    })
+    .catch(error => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Failed to submit concern: ' + error,
+        });
+    });
+});
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.getElementById('concernForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // prevent default form submission
+
+    const form = e.target;
+
+    fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+        if (response.ok) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Thank you!',
+                text: 'Your concern has been submitted.',
+            });
+            form.reset(); // clear the form
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong, please try again.',
+            });
+        }
+    })
+    .catch(error => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Failed to submit concern: ' + error,
+        });
+    });
+});
+</script>
+
+
+
+   <ul id="concernList" style="margin-top: 20px;"></ul>
+   </ul>
+   </section>
+
+   </main>
+
+   <footer>
+    <p>© 2025 The Gotham Index. All rights reserved.</p>
+   </footer>
+
+   <script>
+    function showTab(tabId, element) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('nav ul li').forEach(item => item.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      element.classList.add('active');
+    }
+
+    // SweetAlert button functionality
+    document.getElementById('home-alert').addEventListener('click', function() {
+      Swal.fire({
+        title: 'Batman Fun Fact',
+        text: 'Did u know that Batman have mastered 127 different martial art styles including Krav Maga and Judo?',
+        icon: 'info',
+        confirmButtonText: 'Got it!'
+      });
+    });
+    
+    document.getElementById('concernSubmitBtn').addEventListener('click', function () {
+  const concernText = document.getElementById('concernInput').value.trim();
+
+  if (concernText === '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Empty Concern',
+      text: 'Please type something before submitting.',
+    });
+    return;
+  }
+
+  // Send concern to PHP file
+  fetch('save_concern.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: 'concern=' + encodeURIComponent(concernText)
+  })
+  .then(response => response.text())
+  .then(result => {
+    if(result === 'success'){
+      Swal.fire({
+        icon: 'success',
+        title: 'Thank You!',
+        text: 'Your concern has been submitted.',
+      });
+      document.getElementById('concernInput').value = '';
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Something went wrong: ' + result,
+      });
+    }
+  })
+  .catch(err => {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Failed to submit concern: ' + err,
+    });
+  });
+});
+
+
+
+  </script>
+
+</body>
+</html>
